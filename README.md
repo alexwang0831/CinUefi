@@ -72,8 +72,14 @@ struct _EFI_GRAPHICS_OUTPUT_PROTOCOL {
   EFI_GRAPHICS_OUTPUT_PROTOCOL_MODE          *Mode;
 };
 
+.....
+EFI_GRAPHICS_OUTPUT_PROTOCOL gGop;
 ```
-## 聯合(Union)
+當我們宣靠一個結構的變數之後, 使用方式是用.來存取結構內的元素,如gGop.SetMode()<br>
+
 ## 結構指標(Struct Pointer)
+在C語言的世界中, 指標可以指向任何的東西, 結構當然也不例外, 只是使用上會較為複雜,<br>
+
+## 聯合(Union)
 ## 函數(Function)
 
