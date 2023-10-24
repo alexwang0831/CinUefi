@@ -16,9 +16,9 @@ C語言是強型態語言, 因此變數型態是相當重要的, UEFI的簡單�
 
 ## 指標(Pointer)
 在UEFI中大量使用指標, 因此了解指標的使用方式就相當重要了.</n>
-'''
+```
 UINT8 *Data8 = NULL;
-'''
+```
 ## 結構(Struct)
 ## 聯合(Union)
 ## 結構指標(Struct Pointer)
