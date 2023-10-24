@@ -62,7 +62,18 @@ for(index = 0; index < sizeof(Data8)/sizeof(Data8[0]); index++) {
 在陣列中, 剛好會是下一個元素. 如果指標的型態為UINT32, 那加上index的話則表示加上一個UINT32大小的記憶體位址.
 
 ## 結構(Struct)
+指標用來存放相同型態的資料, 那結構則是用來存放不同型態的資料. 在UEFI中, Protocol與variable就是較複雜的結構.
+結構的宣告方式以GOP為例<br>
+```
+struct _EFI_GRAPHICS_OUTPUT_PROTOCOL {
+  EFI_GRAPHICS_OUTPUT_PROTOCOL_QUERY_MODE    QueryMode;
+  EFI_GRAPHICS_OUTPUT_PROTOCOL_SET_MODE      SetMode;
+  EFI_GRAPHICS_OUTPUT_PROTOCOL_BLT           Blt;
+  EFI_GRAPHICS_OUTPUT_PROTOCOL_MODE          *Mode;
+};
+
+```
 ## 聯合(Union)
 ## 結構指標(Struct Pointer)
-
+## 函數(Function)
 
