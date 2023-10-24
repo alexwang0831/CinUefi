@@ -116,5 +116,60 @@ PrintGopResolution(CurrentMode);
 ```
 上例中, Mode為參數(Parameter), CurrentMode為引數(Argument), 這邊實際上是把CurrentMode複製一份後<br>
 傳給函數, 因此在函數中修改Mode的值也不會影響CurrentMode.
+### 傳址呼叫
+```
+EFI_STATUS PrintGopResolution(UINT8 *Mode){....}
 
+UINT8 CurrentMode = 0;
+PrintGopResolution(&CurrentMode);
+```
+這個例子是把CurrentMode的記憶體位址傳給函數, 因為在PrintGopResolution中改變*Mode的值時, CurrentMode<br>
+也會跟著被改動.<br>
+
+## 函數指標(Function Pointer)
+如同結構指標, 指標當然也能指向函數, UEFI的Protocol大量的使用結構指標及函數指標,<br>
+```
+typedef
+EFI_STATUS
+(EFIAPI *EFI_GRAPHICS_OUTPUT_PROTOCOL_QUERY_MODE)(
+    IN  EFI_GRAPHICS_OUTPUT_PROTOCOL          *This,
+    IN  UINT32                                ModeNumber,
+    OUT UINTN                                 *SizeOfInfo,
+    OUT EFI_GRAPHICS_OUTPUT_MODE_INFORMATION  **Info
+   );
+
+struct _EFI_GRAPHICS_OUTPUT_PROTOCOL {
+    EFI_GRAPHICS_OUTPUT_PROTOCOL_QUERY_MODE    QueryMode;
+    EFI_GRAPHICS_OUTPUT_PROTOCOL_SET_MODE      SetMode;
+    EFI_GRAPHICS_OUTPUT_PROTOCOL_BLT           Blt;
+    ///
+    /// Pointer to EFI_GRAPHICS_OUTPUT_PROTOCOL_MODE data.
+    ///
+    EFI_GRAPHICS_OUTPUT_PROTOCOL_MODE          *Mode;
+};
+```
+*EFI_GRAPHICS_OUTPUT_PROTOCOL_QUERY_MODE這個便是所謂的函數指標, 使用前要把參數及回傳值一模一樣的函數位址<br>
+指定給這個指標, 使用時就是結合結構指標及函數呼叫的方式, 如下例<br>
+```
+EFI_GRAPHICS_OUTPUT_PROTOCOL *gGopPtr = NULL;
+
+EFI_STATUS QueryMode(
+    IN  EFI_GRAPHICS_OUTPUT_PROTOCOL          *This,
+    IN  UINT32                                ModeNumber,
+    OUT UINTN                                 *SizeOfInfo,
+    OUT EFI_GRAPHICS_OUTPUT_MODE_INFORMATION  **Info
+)
+{
+...
+}
+
+gGopPtr = (EFI_GRAPHICS_OUTPUT_PROTOCOL *)AllocateZeroPool (sizeof(EFI_GRAPHICS_OUTPUT_PROTOCOL);
+gGopPtr = QueryMode;
+
+gGopPtr->QueryMode(....);
+```
+
+# 本章結語
+寫UEFI的C語言與OS端的C其實差不多, 只是UEFI不能使用OS環境下的library. 此外UEFI大量使用結構及指標,<br>
+因此在研究或Debug UEFI的程式前要了解這兩者如何使用.
 
