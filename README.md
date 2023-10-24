@@ -15,7 +15,11 @@ UINT16 Index = 0;
 ```
 UINT8 TestData[] = {0, 1};
 ```
-宣告陣列時元素數量可加可不加.
+宣告陣列時元素數量可加可不加. 使用陣列時要清楚的表示要使用第幾個元素.
+```
+Print(L"%d", TestData[1]);
+```
+結果是會顯示1.
 
 ## 指標(Pointer)
 在UEFI中大量使用指標, 因此了解指標的使用方式就相當重要了.<br>
@@ -27,6 +31,31 @@ UINT8 *Data8Ptr = &Data8;
 底下的程式是要透過Data8Ptr改變Data8的值,
 ```
 *Data8Ptr = 2; // Same as Data8 = 2
+```
+
+## 陣列與指標
+當我們宣告一個陣列時, 事實上是挖出一塊記憶體空間來存放我們的資料, 而指標又是存放記憶體位址,<br>
+因此在某些情況下陣列是相當於指標的.
+```
+UINT8 Data8[5] = {1, 2, 3, 4, 5};
+UINT8 *Data8Ptr = Data8;
+```
+上面程式片段將Data8及Data8Ptr連結在一起, 因此我們可以利用指標的方式來存取陣列
+```
+UINT8 Data8[5] = {1, 2, 3, 4, 5};
+UINT8 *Data8Ptr = Data8;
+UINT8 index;
+
+for(index = 0; index < sizeof(Data8)/sizeof(Data8[0]); index++) {
+    Print(L"%d %d", Data[index], *(Data8Ptr + index);
+}
+
+結果
+1 1  
+2 2  
+3 3  
+4 4  
+5 5  
 ```
 
 ## 結構(Struct)
