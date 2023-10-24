@@ -57,6 +57,10 @@ for(index = 0; index < sizeof(Data8)/sizeof(Data8[0]); index++) {
 4 4  
 5 5  
 ```
+要留意的是當對指標加上一個值之後, 事實上是加上一個型態大小的偏移量,<br>
+如上面的例子, Data8Ptr + index表示以Data8Ptr為啟始點, 加上一個UINT8大小的記憶體位址,<br>
+在陣列中, 剛好會是下一個元素. 如果指標的型態為UINT32, 那加上index的話則表示加上一個UINT32大小<br>
+的記憶體位址.
 
 ## 結構(Struct)
 ## 聯合(Union)
