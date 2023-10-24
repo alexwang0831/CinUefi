@@ -78,8 +78,43 @@ EFI_GRAPHICS_OUTPUT_PROTOCOL gGop;
 當我們宣靠一個結構的變數之後, 使用方式是用.來存取結構內的元素,如gGop.SetMode()<br>
 
 ## 結構指標(Struct Pointer)
-在C語言的世界中, 指標可以指向任何的東西, 結構當然也不例外, 只是使用上會較為複雜,<br>
+在C語言的世界中, 指標可以指向任何的東西, 結構當然也不例外, 只是使用上會較為複雜.
+指標是指向記憶體空間, 因此使用前要配給它適當的空間才不會出意外.<br>
+```
+EFI_STATUS Status;
+EFI_GRAPHICS_OUTPUT_PROTOCOL *gGopPtr = NULL;
+
+gGopPtr = (EFI_GRAPHICS_OUTPUT_PROTOCOL *)AllocateZeroPool (sizeof(EFI_GRAPHICS_OUTPUT_PROTOCOL);
+```
+透過配置記憶體空間的功能, 保留一塊適當大小的空間給gGopPtr使用, 當使用結構指標時, 我們要改用->來存取元素,<br>
+如<br>
+```
+gGopPtr->Mode->..
+gGopPtr->SetMode()..
+```
+必須留意的是在UEFI的環境下, 我們會透過LocateProtol, openProtocol之類的功能來配置空間給Protocol.<br>
+在讀variable時也可以利用類似的原理取得.<br>
 
 ## 聯合(Union)
+union與結構類似, 差別是union裡的元素共用記憶體空間, 因此只要改其中一個元素, 其它的也會一起變動.<br>
+```
+union {
+    UINT64    Uint64;
+    UINT32    Uint32[2];
+} UnionTest;
+```
+上例中, 一旦修改了Uint64的值, 那Uint32也會變動.
+
 ## 函數(Function)
+函數是為了增加程式的可讀性與可利用性而生的, 在UEFI常見的2種呼叫函數方式如下
+### 傳值呼叫
+```
+EFI_STATUS PrintGopResolution(UINT8 Mode){....}
+
+UINT8 CurrentMode = 0;
+PrintGopResolution(CurrentMode);
+```
+上例中, Mode為參數(Parameter), CurrentMode為引數(Argument), 這邊實際上是把CurrentMode複製一份後<br>
+傳給函數, 因此在函數中修改Mode的值也不會影響CurrentMode.
+
 
