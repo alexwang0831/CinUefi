@@ -23,12 +23,16 @@
 各專案相關的code應儘量放在這階段. 這個階段主要的任務是把各種protocol及service建立起來, 
 讓各Driver可以快速的使用這些API.<br>
 
-#### Boot service
-
-#### runtime service
-
 ### BDS
 BDS是準備開機的階段了, 各Device Driver透過Binding Protocol把自己及適合的protocol及service聯結.<br>
 最終BIOS會發出"ReadyToBoot"的事件(Event)把控制權交給OS boot loader, 而boot loader取得控制權之後<br>
 會呼叫ExitBootService把所有Boot Service的資料清除.
+
+## Boot service
+這些API只有在POST時可以使用, 當ExitBootService被執行之後, 所有的Boot service都會被清掉.<br>
+所有可使用的Boot service都可以在UefiSpec.h找到, 我個人最常用的是跟Protocol及記憶體配置相關<br>
+的服務.
+
+## runtime service
+一樣可在UefiSpec.h中找到可用的API, 最常用的當然是跟Variable相關的API了.<br>
 
