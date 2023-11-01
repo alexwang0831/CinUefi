@@ -36,3 +36,5 @@ BDS是準備開機的階段了, 各Device Driver透過Binding Protocol把自己�
 ## runtime service
 一樣可在UefiSpec.h中找到可用的API, 最常用的當然是跟Variable相關的API了.<br>
 
+# 本章結語
+這裡只是簡單的介紹而已, 後續我們會透過實際的練習來了解到底如何使用Boot Service及Runtime Service.<br>
