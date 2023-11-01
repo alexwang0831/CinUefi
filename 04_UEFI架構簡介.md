@@ -7,6 +7,10 @@
 階段,分別為SEC, PEI, DXE及BDS, 接下來我們來稍微討論每個階段吧.<br>
 
 ### SEC
+### PEI
+### DXE
+### BDS
+
 ## Boot service
 
 ## runtime service
