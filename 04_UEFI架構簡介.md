@@ -14,9 +14,17 @@
 
 ### PEI
 記憶體這個階段完成初始化, Intel平台的MRC(Memory Reference Code)就是在這階段完成任務的.<br>
+由於其階段的程式是未壓縮的, 且跟平台有很大的相依性, 所以這裡的code要越少越好.<br>
+此階段我們稱Module而不是Driver, PEIM與PEIM之間溝通的方式為PPI(PEIM to PEIM Interface).<br>
+這階段要進入DXE時會把收集到的一些訊息透過HOB傳到DXE.<br>
 
 ### DXE
+這階段可以使用記憶體了且code是經過壓縮的, 因此使用上的限制比PEI階段少.<br>
+各專案相關的code應儘量放在這階段. 這個階段主要的任務是把各種protocol及service建立起來, 
+讓各Driver可以快速的使用這些API.<br>
+
 ### BDS
+
 
 ## Boot service
 
