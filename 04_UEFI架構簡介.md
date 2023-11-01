@@ -13,6 +13,8 @@
 [SEC Phase](https://billy6719.pixnet.net/blog/post/128203544)
 
 ### PEI
+記憶體這個階段完成初始化, Intel平台的MRC(Memory Reference Code)就是在這階段完成任務的.<br>
+
 ### DXE
 ### BDS
 
