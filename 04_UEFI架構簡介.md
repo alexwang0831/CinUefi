@@ -7,6 +7,11 @@
 階段,分別為SEC, PEI, DXE及BDS, 接下來我們來稍微討論每個階段吧.<br>
 
 ### SEC
+目前些階段為組合語言編寫, 主要工作是啟動CAR(Cache As RAM)以及讓CPU進入Flat Mode.<br>
+底下連結有更仔細的說明, 有興趣的話可以連過去閱讀.<br>
+
+[SEC Phase](https://billy6719.pixnet.net/blog/post/128203544)
+
 ### PEI
 ### DXE
 ### BDS
