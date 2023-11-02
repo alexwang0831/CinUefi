@@ -34,7 +34,9 @@
 #include <Library/ShellLib.h>
 #include <Protocol/ShellParameters.h>
 ```
-<br>
+<br>這個幾個是我們在寫Shell程式常用的h檔, 建議保留.<br>
+
+### 程式主體
 ```
 EFI_STATUS
 EFIAPI
@@ -47,3 +49,5 @@ VariableExerciseMain (
     return Status;
 }
 ```
+不管是Application還是Driver,進入點都要宣告<code>ImageHandle</code>及<code>SystemTable</code><br>
+兩個參數
