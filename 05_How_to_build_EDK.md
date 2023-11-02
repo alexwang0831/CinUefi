@@ -9,3 +9,10 @@
 詳細的安裝方式請參考微軟的文件.<br>
 [如何使用 WSL 在 Windows 上安裝 Linux](https://learn.microsoft.com/zh-tw/windows/wsl/install)
 
+## VsCode
+Linux下編寫程式的IDE有很多種, 我個人最喜歡的還是用VSCODE.<br>
+在Windows的環境下, VSCODE可以直接連結到WSL中, 不需另外再啟動Terminal.<br>
+當VSCODE及WSL都安裝完成之後, 可以透過Extension來為VSCODE安裝由微軟發行WSL擴充模組.<br>
+
+
+
