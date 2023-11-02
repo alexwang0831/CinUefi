@@ -18,6 +18,7 @@ Linux下編寫程式的IDE有很多種, 我個人最喜歡的還是用VSCODE.<br
 ![Alt text](Image/VsCode_ConnectToWsl.png)<br>
 因為我的系統只有一個WSL, 所以選第一個就可以了.<br>
 ![Alt text](Image/VsCode_ConnectToWsl2.png)<br>
+接著啟動Terminal.<br>
 
 
 
