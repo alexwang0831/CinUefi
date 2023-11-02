@@ -13,11 +13,11 @@
 Linux下編寫程式的IDE有很多種, 我個人最喜歡的還是用VSCODE.<br>
 在Windows的環境下, VSCODE可以直接連結到WSL中, 不需另外再啟動Terminal.<br>
 當VSCODE及WSL都安裝完成之後, 可以透過Extension來為VSCODE安裝由微軟發行WSL擴充模組.<br>
-![Alt text](Image/VsCode_WSL.png)
+![Alt text](Image/VsCode_WSL.png)<br>
 安裝完成後可以透過左下角的Open a Remote Window來選擇要啟動哪個WSL<br>
-![Alt text](Image/VsCode_ConnectToWsl.png)
+![Alt text](Image/VsCode_ConnectToWsl.png)<br>
 因為我的系統只有一個WSL, 所以選第一個就可以了.<br>
-![Alt text](Image/VsCode_ConnectToWsl2.png)
+![Alt text](Image/VsCode_ConnectToWsl2.png)<br>
 
 
 
