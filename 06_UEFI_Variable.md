@@ -7,3 +7,5 @@
 ## 建立資料夾
 在底下圖片的位置建立VariableExercise資料夾.<br>
 ![Alt text](Image/VariableExercise_01.png)
+接著在ShellPkg.dsc中的<code>[Components]</code>底下加入VariableExercise.inf的位置, 如下:<br>
+<code> ShellPkg/Application/VariableExercise/VariableExercise.inf</code>
