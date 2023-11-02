@@ -21,6 +21,8 @@ Linux下編寫程式的IDE有很多種, 我個人最喜歡的還是用VSCODE.<br
 接著啟動Terminal.<br>
 ![Alt text](Image/VsCode_Terminal.png)<br>
 
+在Terminal中輸入"sudo apt update"來更新取得軟體的路徑, 接下來參考底下文章取得EDK及build code設定.<br>
+[Using EDK II with Native GCC](https://github.com/tianocore/tianocore.github.io/wiki/Using-EDK-II-with-Native-GCC)<br>
 
 
 
