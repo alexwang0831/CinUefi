@@ -23,6 +23,12 @@ Linux下編寫程式的IDE有很多種, 我個人最喜歡的還是用VSCODE.<br
 
 在Terminal中輸入"sudo apt update"來更新取得軟體的路徑, 接下來參考底下文章取得EDK及build code設定.<br>
 [Using EDK II with Native GCC](https://github.com/tianocore/tianocore.github.io/wiki/Using-EDK-II-with-Native-GCC)<br>
+我們的WSL是Ubuntu, 因此選Ubuntu的來看就好, 要注意的是底下指令要修正一下
+```
+sudo apt-get install build-essential uuid-dev iasl git gcc nasm python3-distutils
+```
+
+
 
 
 
