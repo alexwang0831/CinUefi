@@ -35,7 +35,7 @@ BaseTools/Source/C/BrotliCompress
 </code>
 最後, 我們最終目的是寫一些shell下的小工具, 不需要build整個EDK, 因此用底下指令會比較快.
 ```
-build -a X64 -t GCC5 -p ShellPkg/ShellPkg.dsc
+build -a X64 -t GCC5 -p ShellPkg'/'ShellPkg.dsc
 ```
 
 
