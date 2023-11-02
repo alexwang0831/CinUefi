@@ -31,7 +31,7 @@ sudo apt-get install build-essential uuid-dev iasl git gcc nasm python3-distutil
 用git把EDK的code下載完後實際上還是會缺少一些檔案, 例如會缺少BrotliCompress, <br>
 這時只要去github上EDK的repository中點選缺少檔案的路行後下載即可, 如
 <code>
-*BaseTools/Source/C/BrotliCompress*
+BaseTools/Source/C/BrotliCompress
 </code>
 最後, 我們最終目的是寫一些shell下的小工具, 不需要build整個EDK, 因此用底下指令會比較快.
 
