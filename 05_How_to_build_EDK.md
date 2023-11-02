@@ -38,7 +38,9 @@ BaseTools/Source/C/BrotliCompress
 build -a X64 -t GCC5 -p ShellPkg/ShellPkg.dsc
 </code>
 
-
+要寫一個完整的UEFI Driver會用到許多UEFI原生的語言, 如dec, dsc等等.<br>
+這些語言暫不在本文件討論範圍之內, 想了解的話可到底下網站閱讀<br>
+[Tianocore-Docs Project Web Pages](https://tianocore-docs.github.io/)
 
 
 
