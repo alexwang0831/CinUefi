@@ -24,4 +24,26 @@
 因此要設定為<code>UEFI_APPLICATION</code>, 而ENTRY_POINT是這個應用程式的進入點, <br>
 習慣上會以Main或EntryPoint結尾. 每個inf的GUID都是不同的, 可以uuid產生器來產生新的GUID.<br>
 
-## 修改c及h檔
+## 修改c檔
+### include的部份
+```
+#include <Library/PrintLib.h>
+#include <Library/BaseLib.h>
+#include <Library/UefiBootServicesTableLib.h>
+#include <Library/UefiLib.h>
+#include <Library/ShellLib.h>
+#include <Protocol/ShellParameters.h>
+```
+<br>
+```
+EFI_STATUS
+EFIAPI
+VariableExerciseMain (
+  IN EFI_HANDLE        ImageHandle,
+  IN EFI_SYSTEM_TABLE  *SystemTable
+  )
+{
+    EFI_STATUS Status = EFI_SUCCESS;
+    return Status;
+}
+```
