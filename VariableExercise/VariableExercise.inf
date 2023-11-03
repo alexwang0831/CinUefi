@@ -1,0 +1,36 @@
+##  @file
+#  EFI application that displays and verifies ACPI tables
+#
+#  Copyright (c) 2020, ARM Limited. All rights reserved.<BR>
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x0001001B
+  BASE_NAME                      = VariableExercise
+  FILE_GUID                      = 46d5a9c2-7959-11ee-9126-00155d4bd306
+  MODULE_TYPE                    = UEFI_APPLICATION
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = VariableExerciseMain
+
+[Sources.common]
+  VariableExercise.c
+
+[Packages]
+  MdeModulePkg/MdeModulePkg.dec
+  MdePkg/MdePkg.dec
+  ShellPkg/ShellPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiLib
+  BaseLib
+  UefiApplicationEntryPoint
+  AcpiViewCommandLib
+  PrintLib
+  
+[Protocols]
+  gEfiShellParametersProtocolGuid
