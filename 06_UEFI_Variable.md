@@ -50,4 +50,26 @@ VariableExerciseMain (
 }
 ```
 不管是Application還是Driver,進入點都要宣告<code>ImageHandle</code>及<code>SystemTable</code><br>
-兩個參數
+兩個參數.<br>
+
+### 宣告Variable長相及歸屬
+這邊要運用先前提過的結構來建立我們測試用的Variable,<br>
+```
+#pragma pack(1)
+typedef struct 
+{
+  /* data */
+  UINT8 Var_1;
+  UINT8 Var_2;
+  UINT8 Var_3;
+  UINT8 Var_4;
+  UINT8 Var_5;
+}EXERCISE_VARIABLE;
+#pragma pack()
+```
+這邊加上<code>pack(1)</code>是告訴compiler, 這個結構裡面的東西要緊緊相依, 不要為了效率而浪費空間.<br>
+每個Variable都需要一個住址, 因此我們需要產生一個GUID讓它居住, <br>
+```
+#define EXERCISE_VARIABLE \
+    {0x9472d50e, 0x79ec, 0x11ee, 0x9a, 0x0b, 0x00, 0x15, 0x5d, 0xf8, 0xf3, 0x30}
+```
