@@ -98,7 +98,7 @@ if(Status == EFI_NOT_FOUND) {
 ```
 關於屬性, 大概說明如下:<br>
 EFI_VARIABLE_NON_VOLATILE:表示這個Variable是寫回ROM的, 也就是說關機後再開機它仍然能保持上一次的狀態.<br>
-EFI_VARIABLE_BOOTSERVICE_ACCESS:這個Variable是POST時是可讀寫的. 當ExitBootService被呼叫後, 它就會被刪除.<br>
+EFI_VARIABLE_BOOTSERVICE_ACCESS:這個Variable是POST時是可讀寫的. 當ExitBootService被呼叫後它就會被刪除.<br>
 EFI_VARIABLE_RUNTIME_ACCESS:這個Variable進OS之後仍然可以存取.<br>
 <code>Status == EFI_NOT_FOUND</code>表是這個Variable尚未被建立, 因此需要用SetVariable來建立.<br>
 <code>Status == EFI_BUFFER_TOO_SMALL</code>則是我們不知道Variable實際大小的情況下, 會先把size<br>
