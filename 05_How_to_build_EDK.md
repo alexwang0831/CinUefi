@@ -40,8 +40,13 @@ build -a X64 -t GCC5 -p ShellPkg/ShellPkg.dsc
 
 # 本章結語
 要寫一個完整的UEFI Driver會用到許多UEFI原生的語言, 如dec, dsc等等.<br>
-這些語言暫不在本文件討論範圍之內, 想了解的話可到底下網站閱讀<br>
-[Tianocore-Docs Project Web Pages](https://tianocore-docs.github.io/)
+這些語言暫不在本文件討論範圍之內, 想了解的話可到底下網站閱讀:<br>
+[Tianocore-Docs Project Web Pages](https://tianocore-docs.github.io/)<br>
+若是Ubuntu提示找不到Python時, 這是因為Ubuntu預設的指令為Python3, 可安裝底下套件用python<br>
+取代python3.<br>
+```
+sudo apt install python-is-python3
+```
 
 
 
