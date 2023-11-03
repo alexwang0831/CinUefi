@@ -109,5 +109,5 @@ EFI_VARIABLE_RUNTIME_ACCESS:這個Variable進OS之後仍然可以存取.<br>
 
 build完成的執行檔會放在底下路徑
 <code>
-\Build\Shell\DEBUG_GCC5\X64\ShellPkg\Application\VariableExercise\VariableExercise\OUTPUT
+\Build\Shell\DEBUG_GCC5\X64\ShellPkg\Application\VariableExercise\VariableExercise\OUTPUT\VariableExercise.efi
 </code>
