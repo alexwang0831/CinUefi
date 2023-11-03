@@ -30,6 +30,7 @@
 #include <Library/PrintLib.h>
 #include <Library/BaseLib.h>
 #include <Library/UefiBootServicesTableLib.h>
+#include <Library/UefiRuntimeServicesTableLib.h>
 #include <Library/UefiLib.h>
 #include <Library/ShellLib.h>
 #include <Protocol/ShellParameters.h>
