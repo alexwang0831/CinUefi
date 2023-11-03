@@ -74,3 +74,36 @@ typedef struct
 #define EXERCISE_VARIABLE \
     {0x9472d50e, 0x79ec, 0x11ee, {0x9a, 0x0b, 0x00, 0x15, 0x5d, 0xf8, 0xf3, 0x30}}
 ```
+底下是GetVariable的使用範例<br>
+```
+EFI_STATUS Status = EFI_SUCCESS;
+EFI_GUID VarGuid = EXERCISE_VARIABLE_GUID;
+EXERCISE_VARIABLE *ExVar = NULL;
+UINTN VarSize = 0;
+UINT32 Attribute = EFI_VARIABLE_NON_VOLATILE | EFI_VARIABLE_BOOTSERVICE_ACCESS | EFI_VARIABLE_RUNTIME_ACCESS;
+
+Status = gRT->GetVariable(
+                          L"EXVAR",
+                          &VarGuid,
+                          &Attribute,
+                          &VarSize,
+                          ExVar
+                         );
+
+if(Status == EFI_NOT_FOUND) {
+    ...
+} else if(Status == EFI_BUFFER_TOO_SMALL) {
+    ...
+}
+```
+關於屬性, 大概說明如下:<br>
+EFI_VARIABLE_NON_VOLATILE:表示這個Variable是寫回ROM的, 也就是說關機後再開機它仍然能保持上一次的狀態.<br>
+EFI_VARIABLE_BOOTSERVICE_ACCESS:這個Variable是POST時是可讀寫的. 當ExitBootService被呼叫,<br>
+                                它也會被刪除.<br>
+EFI_VARIABLE_RUNTIME_ACCESS:這個Variable進OS之後仍然可以存取.<br>
+<code>Status == EFI_NOT_FOUND</code>表是這個Variable尚未被建立, 因此需要用SetVariable來建立.<br>
+<code>Status == EFI_BUFFER_TOO_SMALL</code>則是我們不知道Variable實際大小的情況下, 會先把size<br>
+設為0, 若Variable存在的話, 那GetVariable會回傳正確的大小給我們. 完整的code請參考<br>
+
+[VariableExercise](./VariableExercise)
+
