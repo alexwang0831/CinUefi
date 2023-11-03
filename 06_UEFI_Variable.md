@@ -111,3 +111,6 @@ build完成的執行檔會放在底下路徑
 <code>
 \Build\Shell\DEBUG_GCC5\X64\ShellPkg\Application\VariableExercise\VariableExercise\OUTPUT\VariableExercise.efi
 </code>
+
+# 本章結語
+這個範例儘是用來說明如何操作Variable, 並不管C的寫作風格. 若與你的習慣不同的話, 可以修改為自己習慣的風格.
