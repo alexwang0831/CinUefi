@@ -19,7 +19,7 @@ sudo apt install qemu-system-x86
 ## 執行OVMF
 以我的環境來說, 我在/HOME/scr下建立了qemu的資料夾, 把ovme.fd改為bios.bin複製到qemu下, 並且在qemu中建立了hda-contents資料夾,<br> 
 如下圖:<br>
-![Alt text](./image/qemu_folder.png)
+![Alt text](Image/qemu_folder.png)
 
 執行的指令如下:<br>
 ```
