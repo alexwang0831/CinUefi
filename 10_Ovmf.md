@@ -25,3 +25,9 @@ sudo apt install qemu-system-x86
 ```
 qemu-system-x86_64 -L . --bios ./bios.bin -net none -hda fat:rw:hda-contents
 ```
+<code>-net none</code>表示不支援網路, 可縮短一些執行時間.<br>
+<code>-hda fat:rw:hda-contents</code>把hda-contents當做fs0, 換句話說我們產出的efi檔就是要<br>
+放在這個資料夾中.
+
+# 本章結語
+qemu雖然方便, 但若有實際可測試的機台時還是建議用實機驗證比較好.<br>
