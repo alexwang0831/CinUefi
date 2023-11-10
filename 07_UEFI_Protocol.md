@@ -81,6 +81,11 @@ ProtocolDriExerciseMain (
 此外inf中必須宣告為<code>MODULE_TYPE = UEFI_DRIVER</code>且需把<code>UefiDriverEntryPoint</code>加進來,<br>
 否則會build error.
 
-## Applicateon
+## Application
+Application這邊, inf要宣告成<code>UEFI_APPLICATION</code>.良好的程式設計是儘量把重覆的部分寫在h檔裡,<br>
+本文不討論這部分, 因此還是在c檔裡定義了Protocol原型.<br>
+使用Protocol最簡單的方式是<code>LocateProtocol</code>,這個意思是不管Protocol掛在哪個Handle, 只要找到就拿來用.<br>
+進階的使用方式, 我們留到下一章再講解.<br>
 
 # 本章結語
+一定要了解C的結構及指標, 要使用或編寫Protocol時才不會出錯.<br>
