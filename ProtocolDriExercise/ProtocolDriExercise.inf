@@ -1,0 +1,38 @@
+##  @file
+#  EFI application that displays and verifies ACPI tables
+#
+#  Copyright (c) 2020, ARM Limited. All rights reserved.<BR>
+#
+#  SPDX-License-Identifier: BSD-2-Clause-Patent
+#
+#
+##
+
+[Defines]
+  INF_VERSION                    = 0x00010005
+  BASE_NAME                      = ProtocolDriExercise
+  FILE_GUID                      = b7244c90-7c67-11ee-8ec1-00155d678cda
+  MODULE_TYPE                    = UEFI_DRIVER
+  VERSION_STRING                 = 1.0
+  ENTRY_POINT                    = ProtocolDriExerciseMain
+
+[Sources.common]
+  ProtocolDriExercise.c
+
+[Packages]
+  MdeModulePkg/MdeModulePkg.dec
+  MdePkg/MdePkg.dec
+  ShellPkg/ShellPkg.dec
+
+[LibraryClasses]
+  UefiBootServicesTableLib
+  UefiLib
+  BaseLib
+  AcpiViewCommandLib
+  PrintLib
+  UefiDriverEntryPoint
+#  UefiApplicationEntryPoint
+
+[Protocols]
+  gEfiShellParametersProtocolGuid
+  gEfiExerciseProtocolGuid
