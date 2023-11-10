@@ -1,6 +1,6 @@
 # How to Build EDK
 前面幾個章節都是分享自己知道的理論知識, 接下來要進入實際操作的部份了.<br>
-我知道每家IBV(Independent BIOS Vendor)都有自己的工具及特定語法來縮知開發時間.<br>
+我知道每家IBV(Independent BIOS Vendor)都有自己的工具及特定語法來縮短開發時間.<br>
 但由於有版權問題, 這裡我選擇用Open Source的EDK及微軟的WSL來完成.<br>
 若是喜歡GUI的朋友也可以直接安裝完整版的Ubuntu.<br>
 
