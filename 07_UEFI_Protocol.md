@@ -53,6 +53,13 @@ PROTOCOL_SET_VARIABLE(
 ```
 這邊我們把函數該做的事完成.<br>
 ```
+EFIAPI
+ProtocolDriExerciseMain (
+  IN EFI_HANDLE        ImageHandle,
+  IN EFI_SYSTEM_TABLE  *SystemTable
+  )
+{
+...
     EFI_EXERCISE_PROTOCOL *ExerciseProtocol = &gExerciseProtocol;
 
     ExerciseProtocol->ProtocolGetVariable = PROTOCOL_GET_VARIABLE;
@@ -64,8 +71,15 @@ PROTOCOL_SET_VARIABLE(
                                            EFI_NATIVE_INTERFACE,
                                            &gExerciseProtocol
                                           );
+}
 ```
-這裡我們直接把函數指定給結構成員<code>ProtocolGetVariable</code>及<code>ProtocolSetVariable</code>, 這卜火
+這裡我們直接把函數指定給結構成員<code>ProtocolGetVariable</code>及<code>ProtocolSetVariable</code>, 這做法就是在03_函數<br>時提到的函數指標.當結構成員完成指定或初始化之後, 我們透過<code>InstallProtocolInterface</code>把我們的Protocol<br>
+掛在<code>ImageHandle</code>上, 要留意的是我們要把Protocol掛在Shell中, 因此用main函數的參數即可,<br>
+若是要掛在特定的driver, 那就要用對應的Handle才可以.<br>
+另一種安裝Protocol的方式為<code>InstallMultipleProtocolInterfaces</code>, 若一次需安裝多個Protocol時,<br>
+建議用後者較為便利.<br>
+此外inf中必須宣告為<code>MODULE_TYPE = UEFI_DRIVER</code>且需把<code>UefiDriverEntryPoint</code>加進來,<br>
+否則會build error.
 
 ## Applicateon
 
